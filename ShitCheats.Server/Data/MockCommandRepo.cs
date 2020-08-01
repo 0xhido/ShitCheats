@@ -5,6 +5,16 @@ namespace ShitCheats.Server.Data
 {
   public class MockCommandRepo : ICommandRepo
   {
+    public void CreateCommand(Command command)
+    {
+      throw new System.NotImplementedException();
+    }
+
+    public void DeleteCommand(Command command)
+    {
+      throw new System.NotImplementedException();
+    }
+
     public IEnumerable<Command> GetAllCommands()
     {
       List<Command> commands = new List<Command>()
@@ -48,6 +58,16 @@ namespace ShitCheats.Server.Data
         Description = "This command creates a mock command",
         Category = "Mock Commands"
       };
+    }
+
+    public bool SaveChanges()
+    {
+      throw new System.NotImplementedException();
+    }
+
+    public void UpdateCommand(Command command)
+    {
+      throw new System.NotImplementedException();
     }
   }
 }

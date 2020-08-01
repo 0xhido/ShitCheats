@@ -8,7 +8,17 @@ namespace ShitCheats.Server.Profiles
   {
     public CommandsProfile()
     {
+      // Command -> CommandReadDto
       CreateMap<Command, CommandReadDto>();
+
+      // CommandCreateDto -> Command
+      CreateMap<CommandCreateDto, Command>();
+
+      // CommandUpdateDto -> Command
+      CreateMap<CommandUpdateDto, Command>();
+
+      // Command -> CommandUpdateDto
+      CreateMap<Command, CommandUpdateDto>();
     }
   }
 }

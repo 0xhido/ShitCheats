@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ShitCheats.Server.Data;
+using Newtonsoft.Json.Serialization;
 
 namespace ShitCheats.Server
 {
@@ -40,7 +41,12 @@ namespace ShitCheats.Server
 
       services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(_connection));
 
-      services.AddControllers();
+      services
+        .AddControllers()
+        .AddNewtonsoftJson(s =>
+          {
+            s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+          });
 
       services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
